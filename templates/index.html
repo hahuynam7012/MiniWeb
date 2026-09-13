@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}ShareKnowlegeElectronic{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Danh sách Username</h1>
+
+    <form class="user-form" action="{{ url_for('add_user') }}" method="POST">
+        <input type="text" name="name" placeholder="Tên" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <button type="submit" class="primary-btn">Add</button>
+    </form>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Tìm kiếm theo tên hoặc email...">
+    </div>
+
+    <div class="table-wrap">
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr data-name="{{ user['name']|lower }}" data-email="{{ user['email']|lower }}">
+                    <td>{{ user['id'] }}</td>
+                    <td>
+                        <input type="text" form="edit-form-{{ user['id'] }}" name="name" value="{{ user['name'] }}" required>
+                    </td>
+                    <td>
+                        <input type="email" form="edit-form-{{ user['id'] }}" name="email" value="{{ user['email'] }}" required>
+                    </td>
+                    <td class="actions-cell">
+                        <form id="edit-form-{{ user['id'] }}" action="{{ url_for('edit_user', id=user['id']) }}" method="POST" class="inline-form">
+                            <button type="submit" class="success-btn">Update</button>
+                        </form>
+                        <a href="{{ url_for('delete_user', id=user['id']) }}" class="delete-btn" data-name="{{ user['name'] }}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
