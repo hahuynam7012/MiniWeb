@@ -1,20 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}ShareKnowlegeElectronic{% endblock %}</title>
+    <title>{% block title %}ShopMini{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <header class="topbar">
         <div class="container nav-wrap">
-            <div class="brand">ShareKnowlegeElectronic</div>
+            <div class="brand">ShopMini</div>
             <nav class="main-nav" aria-label="Main navigation">
-                <a href="{{ url_for('index') }}">Home</a>
-                <a href="#">About</a>
-                <a href="#">Services</a>
-                <a href="#">Contact</a>
             </nav>
         </div>
     </header>
@@ -23,11 +19,8 @@
         <aside class="sidebar" aria-label="Sidebar navigation">
             <div class="sidebar-title">Menu</div>
             <nav class="sidebar-nav">
-                <a href="{{ url_for('index') }}" class="active">Dashboard</a>
-                <a href="#">Users</a>
-                <a href="#">Reports</a>
-                <a href="#">Settings</a>
-                <a href="#">Help</a>
+                <a href="{{ url_for('buy') }}" class="active">Trang mua</a>
+                <a href="{{ url_for('sell') }}">Trang bán</a>
             </nav>
         </aside>
 
@@ -38,8 +31,8 @@
 
     <footer class="footer">
         <div class="container footer-wrap">
-            <p>© 2026 ShareKnowlegeElectronic</p>
-            <p>Built with Flask + custom CSS</p>
+            <p>© 2026 ShopMini</p>
+            <p>Trang mua, bán lẻ trực tuyến dễ dàng</p>
         </div>
     </footer>
 

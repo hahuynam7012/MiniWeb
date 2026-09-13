@@ -1,17 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}ShopMini | Trang mua bán{% endblock %}
+{% block title %}ShopMini | Mua hàng{% endblock %}
 
 {% block content %}
 <div class="container">
-    <h1>Trang mua bán</h1>
-
-    <form class="user-form" action="{{ url_for('add_product') }}" method="POST">
-        <input type="text" name="name" placeholder="Tên món hàng" required>
-        <input type="number" step="0.01" min="0" name="price" placeholder="Giá tiền" required>
-        <input type="text" name="image" placeholder="Tên file ảnh (.png)" value="default.png">
-        <button type="submit" class="primary-btn">Thêm món</button>
-    </form>
+    <h1>Trang mua hàng</h1>
 
     <div class="search-box">
         <input type="text" id="searchInput" placeholder="Tìm kiếm món hàng..."><!--  -->

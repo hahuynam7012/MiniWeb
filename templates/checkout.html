@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}ShopMini | Thanh toán{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="checkout-wrap">
+        <h1>Thanh toán</h1>
+
+        <div class="checkout-box">
+            <img class="checkout-image" src="{{ url_for('static', filename='StockImage/' + (product['image'] or 'default.png')) }}" alt="{{ product['name'] }}">
+
+            <div class="qr-box">
+                <img src="{{ qr_url }}" alt="QR code thanh toán">
+            </div>
+        </div>
+
+        <div class="checkout-summary">
+            <h2>{{ product['name'] }}</h2>
+            <p><strong>ID:</strong> {{ product['id'] }}</p>
+            <p><strong>Giá:</strong> {{ "{:,.0f}".format(product['price']) }}đ</p>
+            <p><strong>Thông tin thanh toán:</strong> {{ payment_text }}</p>
+            <a class="back-link" href="{{ url_for('buy') }}">← Quay lại</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
